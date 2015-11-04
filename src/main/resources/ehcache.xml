@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache name="appCacheManager">
+  <diskStore path="java.io.tmpdir"/>
+  
+	<cache name="getUserWithDetailsByToken"
+		maxElementsInMemory="100"
+		eternal="false"
+		overflowToDisk="false"
+		timeToIdleSeconds="1800"
+	/>
+
+	<cache name="getUserByToken"
+	   maxElementsInMemory="100"
+	   eternal="false"
+	   overflowToDisk="false"
+	   timeToIdleSeconds="1800"
+		/>
+	
+</ehcache>

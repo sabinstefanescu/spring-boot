@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="true">
+	
+	<timestamp key="byDay" datePattern="yyyyMMdd"/>
+	
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<Pattern>SFA ---- %d{dd MMM yyyy;HH:mm:ss.SSS} %-5level %logger - %msg%n</Pattern>
+		</layout>
+	</appender>
+
+	<appender name="LOGFILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>/srv/logs/SFA-logFile.log</file>
+
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>/srv/logs/SFA-logFile.%d{yyyyMMdd}.log</fileNamePattern>
+			<maxHistory>60</maxHistory>
+		</rollingPolicy>
+
+		<encoder>
+			<pattern>SFA ---- %d{dd MMM yyyy;HH:mm:ss.SSS} %-5level %logger - %msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<logger name="org" level="INFO" />
+	<logger name="net" level="INFO" />
+	<logger name="com" level="INFO" />
+
+	<logger name="com.base22" level="TRACE" />
+
+
+	<root level="info">
+		<appender-ref ref="STDOUT" />
+	</root>
+	
+	<root level="info">
+		<appender-ref ref="LOGFILE" />
+	</root>
+	
+</configuration>
